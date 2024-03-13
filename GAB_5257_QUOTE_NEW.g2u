@@ -1,0 +1,46 @@
+Program.Sub.Preflight.Start
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+V.Local.iWidths.Declare
+V.Local.sParam.Declare
+V.Local.sRet.Declare
+V.Local.sSQL.Declare
+V.Local.sTitles.Declare
+V.Local.sUser.Declare
+
+'Generate new quote where customer selection is limited by user
+F.ODBC.Connection!conx.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+
+V.Local.sUser.Set(V.Caller.User)
+F.Intrinsic.String.Split("Customer Name*!*Customer ID","*!*",V.Local.sTitles)
+F.Intrinsic.String.Split("2000*!*1000","*!*",V.Local.iWidths)
+F.Intrinsic.String.Build("select customer from GAB_5257_USER_CUST where gss_user = '{0}'",V.Local.sUser.Trim,V.Local.sSQL)
+F.ODBC.Connection!conx.OpenLocalRecordsetRO("rst",V.Local.sSQL)
+F.Intrinsic.Control.If(V.ODBC.conx!rst.EOF)
+	'User not setup in the table, give access to all customers
+	'V.Local.sSQL.Set("select c2.customerlong, c1.customer from v_customer_master c1 left join gab_customer_long c2 on c1.customer = c2.customer order by c2.customerlong")
+	V.Local.sSQL.Set("select if(c2.customerlong<>'',c2.customerlong,c1.Name_Customer) as customerlong, c1.customer as Customer from v_customer_master c1 left join gab_customer_long c2 on c1.customer = c2.customer Union All Select if(c4.prospectlong<>'',c4.prospectlong,C3.Name_Prospect) as customerlong, C3.Prospect as Customer From V_Prospect_Master C3 left join gab_prospect_long c4 on c3.prospect = c4.prospect order by c2.customerlong")
+F.Intrinsic.Control.Else
+	'F.Intrinsic.String.Build("select c2.customerlong, c1.customer from GAB_5257_USER_CUST c1 left join gab_customer_long c2 on rtrim(c1.customer) = rtrim(c2.customer) where c1.gss_user = '{0}' order by c2.customerlong",V.Local.sUser.Trim,V.Local.sSQL)
+	F.Intrinsic.String.Build("select if(c2.customerlong<>'',c2.customerlong,c3.prospectlong) as customerlong, c1.customer from GAB_5257_USER_CUST c1 left join gab_customer_long c2 on rtrim(c1.customer) = rtrim(c2.customer) left join gab_prospect_long c3 on rtrim(c1.customer) = rtrim(c3.prospect) where c1.gss_user = '{0}' order by c2.customerlong",V.Local.sUser.Trim,V.Local.sSQL)
+F.Intrinsic.Control.EndIf
+F.ODBC.conx!rst.Close
+
+F.Intrinsic.UI.SetBrowserHotTypeAhead(True)
+F.Intrinsic.UI.Browser("Select a customer","conx",V.Local.sSQL,V.Local.sTitles,V.Local.iWidths,V.Local.sRet)
+
+F.Intrinsic.Control.If(V.Local.sRet,<>,"***CANCEL***")
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+	F.Intrinsic.String.Build("!*!{0}",V.Local.sRet(1),V.Local.sParam)
+	F.Global.General.CallWrapperSync(251001,V.Local.sParam)
+F.Intrinsic.Control.EndIf
+
+F.ODBC.Connection!conx.Close
+F.Intrinsic.Control.End
+
+Program.Sub.Main.End
+
+Program.Sub.Comments.Start
+${$0$}$$}$$}$12:00:00 AM$}$False
+Program.Sub.Comments.End
