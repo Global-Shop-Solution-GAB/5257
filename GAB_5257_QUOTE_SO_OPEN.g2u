@@ -1,0 +1,1311 @@
+Program.Sub.ScreenSU.Start
+Gui.F_QteSO..Create
+Gui.F_QteSO..Caption("Quote and Sales Order")
+Gui.F_QteSO..Size(15360,9690)
+Gui.F_QteSO..MinX(0)
+Gui.F_QteSO..MinY(0)
+Gui.F_QteSO..Position(0,0)
+Gui.F_QteSO..BackColor(-2147483633)
+Gui.F_QteSO..MousePointer(0)
+Gui.F_QteSO..Event(UnLoad,Unload)
+Gui.F_QteSO..FontSize(9)
+Gui.F_QteSO.tab1.Create(Tab)
+Gui.F_QteSO.tab1.Size(14985,8055)
+Gui.F_QteSO.tab1.Position(75,975)
+Gui.F_QteSO.tab1.FontSize(9)
+Gui.F_QteSO.tab1.Tabs(5)
+Gui.F_QteSO.tab1.SetTab(0)
+Gui.F_QteSO.tab1.Caption("Quote")
+Gui.F_QteSO.tab1.SetTab(1)
+Gui.F_QteSO.tab1.Caption("Won/Loss")
+Gui.F_QteSO.tab1.SetTab(2)
+Gui.F_QteSO.tab1.Caption("Sales Order")
+Gui.F_QteSO.tab1.SetTab(3)
+Gui.F_QteSO.tab1.Caption("Shipped")
+Gui.F_QteSO.tab1.SetTab(4)
+Gui.F_QteSO.tab1.Caption("Invoiced")
+Gui.F_QteSO.GsGCQte.Create(GsGridControl)
+Gui.F_QteSO.GsGCQte.Size(14730,6885)
+Gui.F_QteSO.GsGCQte.Position(75,690)
+Gui.F_QteSO.GsGCQte.Parent("tab1",0)
+Gui.F_QteSO.GsGCQte.Event(RowCellClick,GsGCQte_RowCellClick)
+Gui.F_QteSO.GsGCSO.Create(GsGridControl)
+Gui.F_QteSO.GsGCSO.Size(14730,7500)
+Gui.F_QteSO.GsGCSO.Position(75,75)
+Gui.F_QteSO.GsGCSO.Parent("tab1",2)
+Gui.F_QteSO.frameMode.Create(Frame)
+Gui.F_QteSO.frameMode.Size(3465,585)
+Gui.F_QteSO.frameMode.Position(75,15)
+Gui.F_QteSO.frameMode.Parent("tab1",0)
+Gui.F_QteSO.optOpen.Create(Option)
+Gui.F_QteSO.optOpen.Size(930,300)
+Gui.F_QteSO.optOpen.Position(75,195)
+Gui.F_QteSO.optOpen.Parent("frameMode")
+Gui.F_QteSO.optOpen.Caption("Open")
+Gui.F_QteSO.optOpen.FontSize(9)
+Gui.F_QteSO.optDelete.Create(Option)
+Gui.F_QteSO.optDelete.Size(1035,300)
+Gui.F_QteSO.optDelete.Position(1215,195)
+Gui.F_QteSO.optDelete.Parent("frameMode")
+Gui.F_QteSO.optDelete.Caption("Delete")
+Gui.F_QteSO.optDelete.FontSize(9)
+Gui.F_QteSO.optCopy.Create(Option)
+Gui.F_QteSO.optCopy.Size(1005,345)
+Gui.F_QteSO.optCopy.Position(2400,150)
+Gui.F_QteSO.optCopy.Parent("frameMode")
+Gui.F_QteSO.optCopy.Caption("Copy")
+Gui.F_QteSO.optCopy.FontSize(9)
+Gui.F_QteSO.GsGCShip.Create(GsGridControl)
+Gui.F_QteSO.GsGCShip.Size(14730,7500)
+Gui.F_QteSO.GsGCShip.Position(75,75)
+Gui.F_QteSO.GsGCShip.Parent("tab1",3)
+Gui.F_QteSO.GsGCInvoice.Create(GsGridControl)
+Gui.F_QteSO.GsGCInvoice.Size(14730,7500)
+Gui.F_QteSO.GsGCInvoice.Position(75,75)
+Gui.F_QteSO.GsGCInvoice.Parent("tab1",4)
+Gui.F_QteSO.GsGCWL.Create(GsGridControl)
+Gui.F_QteSO.GsGCWL.Size(14730,6885)
+Gui.F_QteSO.GsGCWL.Position(75,690)
+Gui.F_QteSO.GsGCWL.Parent("tab1",1)
+Gui.F_QteSO.lbl1.Create(Label,"Total Amount Won:",True,1680,255,0,75,225,True,0,"Arial",9,-2147483633,0)
+Gui.F_QteSO.lbl1.Parent("tab1",1)
+Gui.F_QteSO.txtWonAmt.Create(TextBox,"",True,2220,315,0,1785,135,True,1,"Arial",9,-2147483643,1)
+Gui.F_QteSO.txtWonAmt.Parent("tab1",1)
+Gui.F_QteSO.txtWonAmt.Locked(True)
+Gui.F_QteSO.txtWonPct.Create(TextBox,"",True,1215,315,0,4110,135,True,1,"Arial",9,-2147483643,1)
+Gui.F_QteSO.txtWonPct.Parent("tab1",1)
+Gui.F_QteSO.txtWonPct.Locked(True)
+Gui.F_QteSO.frameDateRange.Create(Frame)
+Gui.F_QteSO.frameDateRange.Size(5640,855)
+Gui.F_QteSO.frameDateRange.Position(120,30)
+Gui.F_QteSO.frameDateRange.Caption("Date Range")
+Gui.F_QteSO.frameDateRange.FontSize(9)
+Gui.F_QteSO.dtpFrom.Create(DatePicker)
+Gui.F_QteSO.dtpFrom.Size(1935,285)
+Gui.F_QteSO.dtpFrom.Position(105,345)
+Gui.F_QteSO.dtpFrom.Parent("frameDateRange")
+Gui.F_QteSO.dtpUntil.Create(DatePicker)
+Gui.F_QteSO.dtpUntil.Size(1935,285)
+Gui.F_QteSO.dtpUntil.Position(2220,345)
+Gui.F_QteSO.dtpUntil.Parent("frameDateRange")
+Gui.F_QteSO.cmdRefresh.Create(Button)
+Gui.F_QteSO.cmdRefresh.Size(1215,375)
+Gui.F_QteSO.cmdRefresh.Position(4290,300)
+Gui.F_QteSO.cmdRefresh.Parent("frameDateRange")
+Gui.F_QteSO.cmdRefresh.Caption("REFRESH")
+Gui.F_QteSO.cmdRefresh.FontSize(9)
+Gui.F_QteSO.cmdRefresh.Event(Click,cmdRefresh_Click)
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+V.Global.dateFrom.Declare
+V.Global.dateUntil.Declare
+V.Global.iRegion.Declare
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+V.Local.sIcon.Declare
+V.Local.sSQL.Declare
+V.Local.sUser.Declare
+
+F.Intrinsic.Control.If(V.Caller.Hook,=,10710)
+	F.ODBC.Connection!conx.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+
+	V.Local.sUser.Set(V.Caller.User)
+	F.Intrinsic.String.Build("select * from gab_5257_user_cust where gss_user = '{0}'",V.Local.sUser.Trim,V.Local.sSQL)
+	F.ODBC.Connection!conx.OpenLocalRecordsetRO("rst",V.Local.sSQL)
+	F.Intrinsic.Control.If(V.ODBC.conx!rst.EOF,=,False)
+		'Lock quote no and hide quote no browser 
+		F.Intrinsic.UI.ChangeCallerProperty(V.Passed.000003,"LOCK",1)
+		F.Intrinsic.UI.ChangeCallerProperty(V.Passed.000004,"HIDE",1)
+	F.Intrinsic.Control.EndIf
+	F.ODBC.conx!rst.Close
+
+	F.ODBC.Connection!conx.Close
+F.Intrinsic.Control.ElseIf(V.Caller.Hook,=,35005)
+	F.ODBC.Connection!conx.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+
+	V.Local.sUser.Set(V.Caller.User)
+	F.Intrinsic.String.Build("select * from gab_5257_user_cust where gss_user = '{0}'",V.Local.sUser.Trim,V.Local.sSQL)
+	F.ODBC.Connection!conx.OpenLocalRecordsetRO("rst",V.Local.sSQL)
+	F.Intrinsic.Control.If(V.ODBC.conx!rst.EOF,=,False)
+		'Lock quote no and hide quote no browser 
+		F.Intrinsic.UI.ChangeCallerProperty(V.Passed.000001,"LOCK",1)
+		F.Intrinsic.UI.ChangeCallerProperty(V.Passed.000002,"HIDE",1)
+	F.Intrinsic.Control.EndIf
+	F.ODBC.conx!rst.Close
+
+	F.ODBC.Connection!conx.Close
+F.Intrinsic.Control.Else
+	F.ODBC.Connection!conx.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+
+	F.Intrinsic.String.Build("{0}\ART\gss2.ico",V.Caller.GlobalDir,V.Local.sIcon)
+	Gui.F_QteSO..Icon(V.Local.sIcon)
+
+	F.Intrinsic.Control.CallSub(SetContextMenus)
+	F.Intrinsic.Control.CallSub(GetUserAccess)
+	F.Intrinsic.Control.CallSub(InitializeDateRange)
+	F.Intrinsic.Control.CallSub(cmdRefresh_Click)
+
+	Gui.F_QteSO.tab1.SetTab(0)
+	Gui.F_QteSO.tab1.Anchor(15)
+	Gui.F_QteSO.GsGCQte.Anchor(15)
+	Gui.F_QteSO.GsGCWL.Anchor(15)
+	Gui.F_QteSO.GsGCSO.Anchor(15)
+	Gui.F_QteSO.GsGCShip.Anchor(15)
+	Gui.F_QteSO.GsGCInvoice.Anchor(15)
+
+	Gui.F_QteSO..Show
+F.Intrinsic.Control.EndIf
+Program.Sub.Main.End
+
+Program.Sub.Unload.Start
+F.Data.Dictionary.Close("dicCRegion")
+F.Data.Dictionary.Close("dicRegion")
+
+F.Intrinsic.Control.If(V.DataTable.dtRegion.Exists)
+	F.Data.DataTable.Close("dtRegion")
+F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.If(V.DataTable.dtCust.Exists)
+	F.Data.DataTable.Close("dtCust")
+F.Intrinsic.Control.EndIf
+F.Data.Dictionary.Close("dicCustName")
+F.Data.Dictionary.Close("dicSP")
+F.Data.Dictionary.Close("dicTax")
+F.Intrinsic.Control.If(V.DataTable.dtQte.Exists)
+	F.Data.DataView.Close("dtQte$dtLine","dvQteL")
+	F.Data.DataView.Close("dtQte","dvQte")
+	F.Data.DataTable.Close("dtQte$dtLine")
+	F.Data.DataTable.Close("dtQte")
+F.Intrinsic.Control.EndIf
+
+F.ODBC.Connection!conx.Close
+F.Intrinsic.Control.End
+
+Program.Sub.Unload.End
+
+Program.Sub.GetUserAccess.Start
+V.Local.sSQL.Declare
+V.Local.sUser.Declare
+
+'Get user's customer list to filter list of quotes and sales orders
+V.Local.sUser.Set(V.Caller.User)
+F.Intrinsic.String.Build("select rtrim(customer) as Customer from GAB_5257_USER_CUST where gss_user = '{0}'",V.Local.sUser.Trim,V.Local.sSQL)
+F.ODBC.Connection!conx.OpenLocalRecordsetRO("rst",V.Local.sSQL)
+F.Intrinsic.Control.If(V.ODBC.conx!rst.EOF,=,True)
+	V.Global.iRegion.Set(0)
+'	V.Local.sSQL.Set("select rtrim(customer) as Customer from v_customer_master")
+	V.Local.sSQL.Set("select rtrim(c1.customer) as Customer from v_customer_master c1 union all select rtrim(c2.prospect) as Customer from v_prospect_Master c2")
+F.Intrinsic.Control.Else
+	V.Global.iRegion.Set(1)
+F.Intrinsic.Control.EndIf
+F.ODBC.conx!rst.Close
+F.Data.DataTable.CreateFromSQL("dtCust","conx",V.Local.sSQL,True)
+
+'Load customer long as dictionary
+'F.Data.Dictionary.CreateFromSQL("dicCustName","conx","select rtrim(customer), customerlong from gab_customer_long")
+F.Data.Dictionary.CreateFromSQL("dicCustName","conx","select rtrim(A.customer) as customer, A.customerlong as customerlong from gab_customer_long A union all select rtrim(B.prospect) as customer, B.prospectlong as customerlong from gab_prospect_long B")
+F.Data.Dictionary.SetDefaultReturn("dicCustName","")
+'Load salesperson as dictionary
+F.Data.Dictionary.CreateFromSQL("dicSP","conx","select id, name from salespersons")
+F.Data.Dictionary.SetDefaultReturn("dicSP","")
+'Load tax rate as dictionary
+F.Data.Dictionary.CreateFromSQL("dicTax","conx","select (zone+auth), rate from v_ar_tax_tables")
+F.Data.Dictionary.SetDefaultReturn("dicTax",0)
+
+'Customer region
+F.Data.Dictionary.CreateFromSQL("dicCRegion","conx","select rtrim(customer), region_id from GAB_5257_CUST_REGION")
+F.Data.Dictionary.SetDefaultReturn("dicCRegion",0)
+F.Data.Dictionary.CreateFromSQL("dicRegion","conx","select id, region from GAB_5257_SALE_REGION")
+F.Data.Dictionary.SetDefaultReturn("dicRegion","")
+Program.Sub.GetUserAccess.End
+
+Program.Sub.LoadQuotes.Start
+V.Local.i1.Declare
+V.Local.sFilter.Declare
+V.Local.sSQL.Declare
+
+F.Intrinsic.Control.If(V.DataTable.dtLine.Exists)
+	F.Data.DataTable.Close("dtLine")
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.If(V.DataTable.dtQte.Exists)
+	F.Data.DataView.Close("dtQte$dtLine","dvQteL")
+	F.Data.DataView.Close("dtQte","dvQte")
+	F.Data.DataTable.Close("dtQte$dtLine")
+	F.Data.DataTable.Close("dtQte")
+F.Intrinsic.Control.EndIf
+
+Gui.F_QteSO.GsGCQte.Visible(False)
+F.Intrinsic.String.Build("select rtrim(quote_no) as Quote,If(RTRIM(QUOTE_TYPE) = 'O', 'In Process', If(RTRIM(QUOTE_TYPE) = 'S', 'Submitted', If(RTRIM(QUOTE_TYPE) = 'A', 'Approved', If(RTRIM(QUOTE_TYPE) = 'P', 'Sent', '')))) as Status, rtrim(customer) as Customer, '' as CustomerName, 0 as RegionID, ' ' as Region, date_quote as QuoteDate, customer_po as Reference, salesperson as SP, '' as Salesman, quote_currency as Currency, expiration as Expiration, 100*quote_discount as Discount, tax_zone_1 as TaxZone, tax_1 as TaxCode from v_quote_header where date_quote between '{0}' and '{1}'",V.Global.dateFrom.PervasiveDate,V.Global.dateUntil.PervasiveDate,V.Local.sSQL)
+F.Data.DataTable.CreateFromSQL("dtQte","conx",V.Local.sSQL,True)
+F.Data.DataTable.FillFromDictionary("dtQte","dicCustName","Customer","CustomerName")
+F.Data.DataTable.FillFromDictionary("dtQte","dicSP","SP","Salesman")
+F.Data.DataTable.FillFromDictionary("dtQte","dicCRegion","Customer","RegionID")
+F.Data.DataTable.FillFromDictionary("dtQte","dicRegion","RegionID","Region")
+F.Intrinsic.String.Build("select rtrim(quote_no) as Quote, record_no as Line, customer as Customer, part as Part, product_line as PL, user_1 as ProductType, description as Description, '' as ExtraDesc, qty_quoted as Quantity, um_quote as UM, price_disc_ord as Price, tax_zone_1+tax_1 as TaxCode, extension_quote as Extension from v_quote_lines where date_quote between '{0}' and '{1}'",V.Global.dateFrom.PervasiveDate,V.Global.dateUntil.PervasiveDate,V.Local.sSQL)
+F.Data.DataTable.CreateFromSQL("dtLine","conx",V.Local.sSQL,True)
+F.Data.DataTable.AddColumn("dtLine","TaxRate","Float",0)
+F.Data.DataTable.FillFromDictionary("dtLine","dicTax","TaxCode","TaxRate")
+F.Data.DataTable.AddExpressionColumn("dtLine","TaxAmt","Float","Extension*TaxRate")
+F.Data.DataTable.AddExpressionColumn("dtLine","QteLine","String","Quote+Line")
+F.Data.Dictionary.CreateFromSQL("dicQteLine","conx","select (quote_number+quote_line), text from v_quote_ln_text")
+F.Data.Dictionary.SetDefaultReturn("dicQteLine","")
+F.Data.DataTable.FillFromDictionary("dtLine","dicQteLine","QteLine","ExtraDesc")
+F.Data.Dictionary.Close("dicQteLine")
+F.Data.DataTable.RemoveColumn("dtLine","QteLine")
+
+'Retrieve quotes and quote lines based on customer's list
+F.Intrinsic.Control.If(V.Global.iRegion,=,0)
+	V.Local.sFilter.Set("")
+F.Intrinsic.Control.Else
+	F.Intrinsic.Control.For(V.Local.i1,0,V.DataTable.dtCust.RowCount--,1)
+		F.Intrinsic.Control.If(V.Local.sFilter.Trim,=,"")
+			F.Intrinsic.String.Build("Customer = '{0}'",V.DataTable.dtCust(V.Local.i1).customer!FieldValTrim,V.Local.sFilter)
+		F.Intrinsic.Control.Else
+			F.Intrinsic.String.Build("{1} OR Customer = '{0}'",V.DataTable.dtCust(V.Local.i1).customer!FieldValTrim,V.Local.sFilter,V.Local.sFilter)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Next(V.Local.i1)
+F.Intrinsic.Control.EndIf
+
+'F.Data.Linq.Join("Leftjoin","datatable","dtQte*!*Q","datatable","dtLine*!*L","Q.Quote*!*L.Quote","Q.Quote*!*L.Line*!*L.Customer*!*L.Part*!*L.Description*!*L.ExtraDesc*!*L.Quantity*!*L.UM*!*L.Price*!*L.PL*!*L.TaxCode*!*L.Extension","","","","dtQte$dtLine",True)
+
+'Create dataview and link the datatables
+F.Data.DataTable.Clone("dtLine","dtQte$dtLine",True)
+F.Data.DataTable.Merge("dtLine","dtQte$dtLine",False,1)
+F.Data.DataTable.AddRelation("dtQte","Quote","dtQte$dtLine","Quote")
+F.Data.DataView.Create("dtQte","dvQte",22,V.Local.sFilter,"Quote DESC")
+F.Data.DataView.Create("dtQte$dtLine","dvQteL",22,V.Local.sFilter,"Quote ASC, Line ASC")
+F.Data.DataTable.Close("dtLine")
+
+Gui.F_QteSO.GsGCQte.AddGridviewFromDataview("gvQte","dtQte","dvQte")
+Gui.F_QteSO.GsGCQte.AddGridviewFromDataview("gvQteL","dtQte","dvQteL")
+Gui.F_QteSO.GsGCQte.MainView("gvQte")
+
+Gui.F_QteSO.GsGCQte.SetGridviewProperty("gvQte","ShowGroupPanel",True)
+Gui.F_QteSO.GsGCQte.SetGridviewProperty("gvQte","AllowSort",True)
+Gui.F_QteSO.GsGCQte.SetGridviewProperty("gvQte","AllowFilter",True)
+Gui.F_QteSO.GsGCQte.SetGridviewProperty("gvQteL","AllowSort",True)
+Gui.F_QteSO.GsGCQte.SetGridviewProperty("gvQteL","AllowFilter",True)
+
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQte","SP","Visible",False)
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQte","RegionID","Visible",False)
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQte","CustomerName","Caption","Customer Name")
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQte","QuoteDate","Caption","Quote Date")
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQte","TaxZone","Caption","Tax Zone")
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQte","TaxCode","Caption","Tax Code")
+
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQte","Quote","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQte","Status","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQte","Customer","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQte","CustomerName","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQte","QuoteDate","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQte","Reference","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQte","Salesman","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQte","Currency","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQte","Expiration","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQte","Discount","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQte","TaxZone","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQte","TaxCode","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQte","Region","HeaderHAlignment","Center")
+
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQte","Quote","HeaderFontBold",True)
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQte","Status","HeaderFontBold",True)
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQte","Customer","HeaderFontBold",True)
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQte","CustomerName","HeaderFontBold",True)
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQte","QuoteDate","HeaderFontBold",True)
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQte","Reference","HeaderFontBold",True)
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQte","Salesman","HeaderFontBold",True)
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQte","Currency","HeaderFontBold",True)
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQte","Expiration","HeaderFontBold",True)
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQte","Discount","HeaderFontBold",True)
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQte","TaxZone","HeaderFontBold",True)
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQte","TaxCode","HeaderFontBold",True)
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQte","Region","HeaderFontBold",True)
+
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQte","Quote","MinWidth","80")
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQte","Status","MinWidth","80")
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQte","Customer","MinWidth","50")
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQte","CustomerName","MinWidth","180")
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQte","QuoteDate","MinWidth","100")
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQte","Reference","MinWidth","120")
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQte","Salesman","MinWidth","110")
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQte","Currency","MinWidth","50")
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQte","Expiration","MinWidth","100")
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQte","Discount","MinWidth","70")
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQte","TaxZone","MinWidth","50")
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQte","TaxCode","MinWidth","50")
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQte","Region","MinWidth","100")
+
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQte","Quote","CellHAlignment","Center")
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQte","Status","CellHAlignment","Center")
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQte","Customer","CellHAlignment","Center")
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQte","QuoteDate","CellHAlignment","Center")
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQte","Currency","CellHAlignment","Center")
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQte","TaxZone","CellHAlignment","Center")
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQte","TaxCode","CellHAlignment","Center")
+
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQte","QuoteDate","DisplayCustomDatetime","d")
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQte","Discount","DisplayCustomNumeric","##,###,##0.00%")
+
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQte","Quote","CellFontUnderline",True)
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQte","Quote","CellForeColor",V.Color.Blue)
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQte","Quote","Fixed","Left")
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQte","Quote","AllowEdit",False)
+
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQteL","Quote","Visible",False)
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQteL","Customer","Visible",False)
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQteL","TaxCode","Visible",False)
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQteL","TaxRate","Visible",False)
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQteL","ExtraDesc","Caption","Extra Description")
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQteL","TaxAmt","Caption","GST")
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQteL","ProductType","Caption","Product Type")
+
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQteL","Line","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQteL","Part","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQteL","Description","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQteL","ExtraDesc","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQteL","Quantity","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQteL","UM","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQteL","Price","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQteL","Extension","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQteL","TaxAmt","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQteL","PL","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQteL","ProductType","HeaderHAlignment","Center")
+
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQteL","Line","HeaderFontBold",True)
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQteL","Part","HeaderFontBold",True)
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQteL","Description","HeaderFontBold",True)
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQteL","ExtraDesc","HeaderFontBold",True)
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQteL","Quantity","HeaderFontBold",True)
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQteL","UM","HeaderFontBold",True)
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQteL","Price","HeaderFontBold",True)
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQteL","Extension","HeaderFontBold",True)
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQteL","TaxAmt","HeaderFontBold",True)
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQteL","PL","HeaderFontBold",True)
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQteL","ProductType","HeaderFontBold",True)
+
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQteL","Line","MinWidth","40")
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQteL","Part","MinWidth","120")
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQteL","Description","MinWidth","200")
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQteL","ExtraDesc","MinWidth","300")
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQteL","Quantity","MinWidth","90")
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQteL","UM","MinWidth","40")
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQteL","Price","MinWidth","100")
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQteL","Extension","MinWidth","100")
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQteL","TaxAmt","MinWidth","100")
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQteL","PL","MinWidth","40")
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQteL","ProductType","MinWidth","80")
+
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQteL","Line","CellHAlignment","Center")
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQteL","UM","CellHAlignment","Center")
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQteL","PL","CellHAlignment","Center")
+
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQteL","Quantity","DisplayCustomNumeric","##,###,##0")
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQteL","Price","DisplayCustomNumeric","##,###,##0.00")
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQteL","Extension","DisplayCustomNumeric","##,###,##0.00")
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQteL","TaxAmt","DisplayCustomNumeric","##,###,##0.00")
+
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQteL","Line","Fixed","Left")
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQteL","Part","Fixed","Left")
+
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQteL","Extension","Fixed","Right")
+Gui.F_QteSO.GsGCQte.SetColumnProperty("gvQteL","TaxAmt","Fixed","Right")
+
+Gui.F_QteSO.GsGCQte.AddSummaryItem("gvQteL","Extension","QEXTSUM","SUM","","","##,###,##0.00")
+Gui.F_QteSO.GsGCQte.AddSummaryItem("gvQteL","TaxAmt","QTAXSUM","SUM","","","##,###,##0.00")
+Gui.F_QteSO.GsGCQte.Visible(True)
+Program.Sub.LoadQuotes.End
+
+Program.Sub.LoadSO.Start
+V.Local.i1.Declare
+V.Local.sFilter.Declare
+V.Local.sSQL.Declare
+
+F.Intrinsic.Control.If(V.DataTable.dtSO.Exists)
+'	F.Data.DataView.Close("dtSO$dtLine","dvSOL")
+	F.Data.DataView.Close("dtSO","dvSO")
+'	F.Data.DataTable.Close("dtSO$dtLine")
+	F.Data.DataTable.Close("dtSO")
+F.Intrinsic.Control.EndIf
+
+Gui.F_QteSO.GsGCSO.Visible(False)
+
+'F.Data.DataTable.CreateFromSQL("dtSO","conx","select order_no as SO, rtrim(customer) as Customer, '' as CustomerName, 0 as RegionID, ' ' as Region, date_order as SODate, customer_po as PO, salesperson as SP, '' as Salesman, quote as Quote, order_currency as Currency, code_fob as FOB, terms as Terms, 100*order_discount as Discount, tax_zone_1 as TaxZone, tax_1 as TaxCode from v_order_header",True)
+
+F.Data.DataTable.CreateFromSQL("dtSO","conx","select OL.order_no as SO, OL.record_no as Line, rtrim(OL.customer) as Customer, '' as CustomerName, 0 as RegionID, ' ' as Region, OH.date_order as SODate, OL.item_promise_dt as DueDate, OH.customer_po as PO, OH.salesperson as SP, '' as Salesman, OH.quote as Quote, OH.order_currency as Curr, OH.code_fob as FOB, OH.terms as Terms, OL.part as Part, OL.product_line as PL, OL.user_1 as ProductType, OL.description as Description, '' as ExtraDesc, OL.qty_ordered as Quantity, OL.um_order as UM, OL.discount_price as Price, 100*discount as Discount, OL.tax_1 as TaxCode, OL.extension as Extension from v_order_lines OL left join v_order_header OH on OL.order_no = OH.order_no",True)
+F.Data.DataTable.FillFromDictionary("dtSO","dicCustName","Customer","CustomerName")
+F.Data.DataTable.FillFromDictionary("dtSO","dicSP","SP","Salesman")
+F.Data.DataTable.FillFromDictionary("dtSO","dicCRegion","Customer","RegionID")
+F.Data.DataTable.FillFromDictionary("dtSO","dicRegion","RegionID","Region")
+F.Data.DataTable.AddColumn("dtSO","TaxRate","Float",0)
+F.Data.DataTable.FillFromDictionary("dtSO","dicTax","TaxCode","TaxRate")
+F.Data.DataTable.AddExpressionColumn("dtSO","TaxAmt","Float","Extension*TaxRate")
+F.Data.DataTable.AddExpressionColumn("dtSO","SOLine","String","SO+Line")
+F.Data.Dictionary.CreateFromSQL("dicSOLine","conx","select (order_num+order_line), text from v_order_ln_text")
+F.Data.Dictionary.SetDefaultReturn("dicSOLine","")
+F.Data.DataTable.FillFromDictionary("dtSO","dicSOLine","SOLine","ExtraDesc")
+F.Data.Dictionary.Close("dicSOLine")
+F.Data.DataTable.RemoveColumn("dtSO","SOLine")
+
+'Retrieve quotes and quote lines based on customer's list
+F.Intrinsic.Control.If(V.Global.iRegion,=,0)
+	V.Local.sFilter.Set("")
+F.Intrinsic.Control.Else
+	F.Intrinsic.Control.For(V.Local.i1,0,V.DataTable.dtCust.RowCount--,1)
+		F.Intrinsic.Control.If(V.Local.sFilter.Trim,=,"")
+			F.Intrinsic.String.Build("Customer = '{0}'",V.DataTable.dtCust(V.Local.i1).customer!FieldValTrim,V.Local.sFilter)
+		F.Intrinsic.Control.Else
+			F.Intrinsic.String.Build("{1} OR Customer = '{0}'",V.DataTable.dtCust(V.Local.i1).customer!FieldValTrim,V.Local.sFilter,V.Local.sFilter)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Next(V.Local.i1)
+F.Intrinsic.Control.EndIf
+
+'Create dataview and link the datatables
+F.Data.DataView.Create("dtSO","dvSO",22,V.Local.sFilter,"SO DESC")
+
+Gui.F_QteSO.GsGCSO.AddGridviewFromDataview("gvSO","dtSO","dvSO")
+Gui.F_QteSO.GsGCSO.MainView("gvSO")
+
+Gui.F_QteSO.GsGCSO.SetGridviewProperty("gvSO","ShowGroupPanel",True)
+Gui.F_QteSO.GsGCSO.SetGridviewProperty("gvSO","AllowSort",True)
+Gui.F_QteSO.GsGCSO.SetGridviewProperty("gvSO","AllowFilter",True)
+Gui.F_QteSO.GsGCSO.SetGridviewProperty("gvSO","AllowColumnResizing",True)
+
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","SP","Visible",False)
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","RegionID","Visible",False)
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","CustomerName","Caption","Customer Name")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","Curr","Caption","Currency")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","SO","Caption","Order No.")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","SODate","Caption","Order Date")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","PO","Caption","PO No.")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","Quote","Caption","Quote No.")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","TaxCode","Caption","Tax Code")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","ExtraDesc","Caption","Extra Description")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","TaxAmt","Caption","GST")
+
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","SO","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","Customer","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","CustomerName","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","SODate","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","PO","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","Salesman","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","Quote","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","Curr","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","FOB","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","Terms","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","Discount","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","TaxCode","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","Region","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","Line","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","Part","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","Description","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","ExtraDesc","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","Quantity","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","UM","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","Price","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","DueDate","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","Extension","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","TaxAmt","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","PL","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","ProductType","HeaderHAlignment","Center")
+
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","SO","HeaderFontBold",True)
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","Customer","HeaderFontBold",True)
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","CustomerName","HeaderFontBold",True)
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","SODate","HeaderFontBold",True)
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","PO","HeaderFontBold",True)
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","Salesman","HeaderFontBold",True)
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","Quote","HeaderFontBold",True)
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","Curr","HeaderFontBold",True)
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","FOB","HeaderFontBold",True)
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","Terms","HeaderFontBold",True)
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","Discount","HeaderFontBold",True)
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","TaxCode","HeaderFontBold",True)
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","Region","HeaderFontBold",True)
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","Line","HeaderFontBold",True)
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","Part","HeaderFontBold",True)
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","Description","HeaderFontBold",True)
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","ExtraDesc","HeaderFontBold",True)
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","Quantity","HeaderFontBold",True)
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","UM","HeaderFontBold",True)
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","Price","HeaderFontBold",True)
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","DueDate","HeaderFontBold",True)
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","Extension","HeaderFontBold",True)
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","TaxAmt","HeaderFontBold",True)
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","PL","HeaderFontBold",True)
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","ProductType","HeaderFontBold",True)
+
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","SO","MinWidth","80")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","Customer","MinWidth","70")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","CustomerName","MinWidth","180")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","SODate","MinWidth","100")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","PO","MinWidth","120")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","Salesman","MinWidth","110")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","Quote","MinWidth","60")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","Curr","MinWidth","60")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","FOB","MinWidth","70")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","Terms","MinWidth","70")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","Discount","MinWidth","60")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","TaxCode","MinWidth","50")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","Region","MinWidth","100")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","Line","MinWidth","40")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","Part","MinWidth","120")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","Description","MinWidth","200")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","ExtraDesc","MinWidth","300")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","Quantity","MinWidth","70")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","UM","MinWidth","40")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","Price","MinWidth","100")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","DueDate","MinWidth","100")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","Extension","MinWidth","100")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","TaxAmt","MinWidth","100")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","PL","MinWidth","40")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","ProductType","MinWidth","100")
+
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","SO","CellHAlignment","Center")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","Customer","CellHAlignment","Center")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","SODate","CellHAlignment","Center")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","Quote","CellHAlignment","Center")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","Curr","CellHAlignment","Center")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","FOB","CellHAlignment","Center")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","Terms","CellHAlignment","Center")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","TaxCode","CellHAlignment","Center")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","Line","CellHAlignment","Center")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","DueDate","CellHAlignment","Center")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","UM","CellHAlignment","Center")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","PL","CellHAlignment","Center")
+
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","SODate","DisplayCustomDatetime","d")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","Discount","DisplayCustomNumeric","##,###,##0.00%")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","DueDate","DisplayCustomDatetime","d")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","Quantity","DisplayCustomNumeric","##,###,##0")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","Price","DisplayCustomNumeric","##,###,##0.00")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","Extension","DisplayCustomNumeric","##,###,##0.00")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","TaxAmt","DisplayCustomNumeric","##,###,##0.00")
+
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","Line","Fixed","Left")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","SO","Fixed","Left")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","Extension","Fixed","Right")
+Gui.F_QteSO.GsGCSO.SetColumnProperty("gvSO","TaxAmt","Fixed","Right")
+
+Gui.F_QteSO.GsGCSO.AddSummaryItem("gvSO","Extension","SOEXTSUM","SUM","","","##,###,##0.00")
+Gui.F_QteSO.GsGCSO.AddSummaryItem("gvSO","TaxAmt","SOTAXSUM","SUM","","","##,###,##0.00")
+Gui.F_QteSO.GsGCSO.Visible(True)
+Program.Sub.LoadSO.End
+
+Program.Sub.GsGCQte_RowCellClick.Start
+V.Local.sParam.Declare
+V.Local.sQuote.Declare
+
+F.Intrinsic.Control.If(V.Args.Column,=,"Quote")
+	Gui.F_QteSO.GsGCQte.GetCellValueByColumnName("gvQte","Quote",V.Args.RowIndex,V.Local.sQuote)
+	F.Intrinsic.Control.If(V.Screen.F_QteSO!optOpen.Value)
+		F.Intrinsic.String.Build("{0}!*!O",V.Local.sQuote,V.Local.sParam)
+		F.Global.General.CallWrapperSync(251000,V.Local.sParam)
+	F.Intrinsic.Control.ElseIf(V.Screen.F_QteSO!optDelete.Value)
+		F.Intrinsic.Control.If(V.Screen.F_QteSO!optDelete.Value)
+			F.Intrinsic.String.Build("{0}!*!D",V.Local.sQuote,V.Local.sParam)
+			F.Global.General.CallWrapperSync(251000,V.Local.sParam)
+			F.Intrinsic.Control.CallSub(LoadQuotes)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.ElseIf(V.Screen.F_QteSO!optCopy.Value)
+		F.Intrinsic.String.Build("{0}!*!C",V.Local.sQuote,V.Local.sParam)
+		F.Global.General.CallWrapperSync(251000,V.Local.sParam)
+		F.Intrinsic.Control.CallSub(LoadQuotes)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+Program.Sub.GsGCQte_RowCellClick.End
+
+Program.Sub.SetContextMenus.Start
+Gui.F_QteSO..ContextMenuCreate("CTXQTE")
+Gui.F_QteSO.GsGCQte.ContextMenuAttach("CTXQTE")
+Gui.F_QteSO..ContextMenuAddItem("CTXQTE","Refresh",0,"Refresh Grid")
+Gui.F_QteSO..ContextMenuAddItem("CTXQTE","Export",0,"Export")
+Gui.F_QteSO..ContextMenuSetItemEventHandler("CTXQTE","Refresh","LoadQuotes")
+Gui.F_QteSO..ContextMenuSetItemEventHandler("CTXQTE","Export","ContextMenuExport")
+
+Gui.F_QteSO..ContextMenuCreate("CTXSO")
+Gui.F_QteSO.GsGCSO.ContextMenuAttach("CTXSO")
+Gui.F_QteSO..ContextMenuAddItem("CTXSO","Refresh",0,"Refresh Grid")
+Gui.F_QteSO..ContextMenuAddItem("CTXSO","Export",0,"Export")
+Gui.F_QteSO..ContextMenuSetItemEventHandler("CTXSO","Refresh","LoadSO")
+Gui.F_QteSO..ContextMenuSetItemEventHandler("CTXSO","Export","ContextMenuExport")
+
+Gui.F_QteSO..ContextMenuCreate("CTXWLC")
+Gui.F_QteSO.GsGCWL.ContextMenuAttach("CTXWLC")
+Gui.F_QteSO..ContextMenuAddItem("CTXWLC","Refresh",0,"Refresh Grid")
+Gui.F_QteSO..ContextMenuAddItem("CTXWLC","Export",0,"Export")
+Gui.F_QteSO..ContextMenuSetItemEventHandler("CTXWLC","Refresh","LoadWonLoss")
+Gui.F_QteSO..ContextMenuSetItemEventHandler("CTXWLC","Export","ContextMenuExport")
+
+Gui.F_QteSO..ContextMenuCreate("CTXSHIP")
+Gui.F_QteSO.GsGCShip.ContextMenuAttach("CTXSHIP")
+Gui.F_QteSO..ContextMenuAddItem("CTXSHIP","Refresh",0,"Refresh Grid")
+Gui.F_QteSO..ContextMenuAddItem("CTXSHIP","Export",0,"Export")
+Gui.F_QteSO..ContextMenuSetItemEventHandler("CTXSHIP","Refresh","LoadShip")
+Gui.F_QteSO..ContextMenuSetItemEventHandler("CTXSHIP","Export","ContextMenuExport")
+
+Gui.F_QteSO..ContextMenuCreate("CTXINVOICE")
+Gui.F_QteSO.GsGCInvoice.ContextMenuAttach("CTXINVOICE")
+Gui.F_QteSO..ContextMenuAddItem("CTXINVOICE","Refresh",0,"Refresh Grid")
+Gui.F_QteSO..ContextMenuAddItem("CTXINVOICE","Export",0,"Export")
+Gui.F_QteSO..ContextMenuSetItemEventHandler("CTXINVOICE","Refresh","LoadInvoice")
+Gui.F_QteSO..ContextMenuSetItemEventHandler("CTXINVOICE","Export","ContextMenuExport")
+Program.Sub.SetContextMenus.End
+
+Program.Sub.ContextMenuExport.Start
+V.Local.bExist.Declare
+V.Local.sControl.Declare
+V.Local.sFilename.Declare
+V.Local.sRet.Declare
+
+'Export every grid to csv or excel
+F.Intrinsic.Control.SelectCase(V.Args.MenuName)
+	F.Intrinsic.Control.Case("CTXQTE")
+		V.Local.sControl.Set("GsGCQte")
+	F.Intrinsic.Control.Case("CTXSO")
+		V.Local.sControl.Set("GsGCSO")
+	F.Intrinsic.Control.Case("CTXWLC")
+		V.Local.sControl.Set("GsGCWL")
+	F.Intrinsic.Control.Case("CTXSHIP")
+		V.Local.sControl.Set("GsGCShip")
+	F.Intrinsic.Control.Case("CTXINVOICE")
+		V.Local.sControl.Set("GsGCInvoice")	
+F.Intrinsic.Control.EndSelect
+
+F.Automation.MSExcel.CheckPresence(V.Local.bExist)
+F.Intrinsic.Control.If(V.Local.bExist)
+	F.Intrinsic.UI.ShowSaveFileDialog("","*.xlsx|",V.Local.sFilename)
+	F.Intrinsic.Control.If(V.Local.sFileName,<>,"***CANCEL***")
+		F.Intrinsic.String.Concat(V.Local.sFilename,".xlsx",V.Local.sFilename)
+		Gui.F_QteSO.[V.Local.sControl].Export(V.Local.sFilename,"xlsx")
+		F.Intrinsic.Task.ShellExec(0,"",V.Local.sFilename,"","",1)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Else
+	F.Intrinsic.UI.ShowSaveFileDialog("","*.csv|",V.Local.sFilename)
+	F.Intrinsic.Control.If(V.Local.sFileName,<>,"***CANCEL***")
+		F.Intrinsic.String.Concat(V.Local.sFilename,".csv",V.Local.sFilename)
+		Gui.F_QteSO.[V.Local.sControl].Export(V.Local.sFilename,"csv")
+		F.Intrinsic.Task.ShellExec(0,"",V.Local.sFilename,"","",1)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+Program.Sub.ContextMenuExport.End
+
+Program.Sub.GsGCSO_RowCellClick.Start
+V.Local.sParam.Declare
+V.Local.sSO.Declare
+
+F.Intrinsic.Control.If(V.Args.Column,=,"SO")
+	Gui.F_QteSO.GsGCSO.GetCellValueByColumnName("gvSO","SO",V.Args.RowIndex,V.Local.sSO)
+	F.Intrinsic.String.Build("{0}!*!V!*!",V.Local.sSO.Trim,V.Local.sParam)
+	F.Global.General.CallWrapperSync(200000,V.Local.sParam)
+F.Intrinsic.Control.EndIf
+Program.Sub.GsGCSO_RowCellClick.End
+
+Program.Sub.LoadShip.Start
+V.Local.i1.Declare
+V.Local.sFilter.Declare
+V.Local.sSQL.Declare
+
+F.Intrinsic.Control.If(V.DataTable.dtShip.Exists)
+	F.Data.DataView.Close("dtShip","dvShip")
+	F.Data.DataTable.Close("dtShip")
+F.Intrinsic.Control.EndIf
+
+Gui.F_QteSO.GsGCShip.Visible(False)
+'F.Intrinsic.String.Build("select order_no as SO, order_suffix as Suffix, rtrim(customer) as Customer, '' as CustomerName, 0 as RegionID, ' ' as Region, date_order as SODate, date_ship as ShipDate, date_item_promise as DueDate, ' ' as DO, invoice as Invoice, '' as PO, order_rec as Line, part as Part, customer_part as CPart, product_line as PL, order_desc as Description, ln_user_1 as ProductType, exchange_currency as Currency, qty_shipped as Quantity, um_order as UM, discount_price as Price, extension as Extension, tax_1 as TaxCode, cost as Cost, qty_shipped*cost as TotalCost from v_shipment_lines where date_order between '{0}' and '{1}'",V.Global.dateFrom.PervasiveDate,V.Global.dateUntil.PervasiveDate,V.Local.sSQL)
+F.Intrinsic.String.Build("select order_no as SO, order_suffix as Suffix, rtrim(customer) as Customer, '' as CustomerName, 0 as RegionID, ' ' as Region, date_order as SODate, date_ship as ShipDate, date_item_promise as DueDate, ' ' as DO, invoice as Invoice, '' as PO, order_rec as Line, part as Part, customer_part as CPart, product_line as PL, order_desc as Description, ln_user_1 as ProductType, exchange_currency as Currency, qty_shipped as Quantity, um_order as UM, discount_price as Price, extension as Extension, tax_1 as TaxCode, cost as Cost, qty_shipped*cost as TotalCost from v_shipment_lines where date_ship between '{0}' and '{1}'",V.Global.dateFrom.PervasiveDate,V.Global.dateUntil.PervasiveDate,V.Local.sSQL)
+F.Data.DataTable.CreateFromSQL("dtShip","conx",V.Local.sSQL,True)
+'F.Data.DataTable.AddExpressionColumn("dtShip","TotalCost","Float","Quantity*Cost")
+F.Data.DataTable.FillFromDictionary("dtShip","dicCustName","Customer","CustomerName")
+F.Data.DataTable.AddColumn("dtShip","TaxRate","Float",0)
+F.Data.DataTable.FillFromDictionary("dtShip","dicTax","TaxCode","TaxRate")
+F.Data.DataTable.AddExpressionColumn("dtShip","TaxAmt","Float","Extension*TaxRate")
+'F.Intrinsic.String.Build("select order_no, customer_po from v_shipment_header where date_order between '{0}' and '{1}'",V.Global.dateFrom.PervasiveDate,V.Global.dateUntil.PervasiveDate,V.Local.sSQL)
+F.Intrinsic.String.Build("select order_no, customer_po from v_shipment_header where date_shipped between '{0}' and '{1}'",V.Global.dateFrom.PervasiveDate,V.Global.dateUntil.PervasiveDate,V.Local.sSQL)
+F.Data.Dictionary.CreateFromSQL("dicShip","conx",V.Local.sSQL)
+F.Data.Dictionary.SetDefaultReturn("dicShip","")
+F.Data.DataTable.FillFromDictionary("dtShip","dicShip","SO","PO")
+F.Data.Dictionary.Close("dicShip")
+F.Data.DataTable.AddExpressionColumn("dtShip","SOSuffix","String","SO+Suffix")
+'F.Intrinsic.String.Build("select order_no+order_suffix, pck_no from v_shipment_header where date_order between '{0}' and '{1}'",V.Global.dateFrom.PervasiveDate,V.Global.dateUntil.PervasiveDate,V.Local.sSQL)
+F.Intrinsic.String.Build("select order_no+order_suffix, pck_no from v_shipment_header where date_shipped between '{0}' and '{1}'",V.Global.dateFrom.PervasiveDate,V.Global.dateUntil.PervasiveDate,V.Local.sSQL)
+F.Data.Dictionary.CreateFromSQL("dicShip","conx",V.Local.sSQL)
+F.Data.Dictionary.SetDefaultReturn("dicShip","")
+F.Data.DataTable.FillFromDictionary("dtShip","dicShip","SOSuffix","DO")
+F.Data.Dictionary.Close("dicShip")
+
+'F.Intrinsic.String.Build("select order_no as SO, order_suffix as Suffix, rtrim(customer) as Customer, '' as CustomerName, 0 as RegionID, ' ' as Region, date_order as SODate, date_shipped as ShipDate, date_order_due as DueDate, ' ' as DO, invoice as Invoice, customer_po as PO, order_line as Line, part as Part, customer_part as CPart, product_line as PL, description as Description, user_1 as ProductType, order_currency as Currency, qty_shipped as Quantity, um as UM, price_discount as Price, extension as Extension, tax_1 as TaxCode, cost as Cost, qty_shipped*cost as TotalCost, convert(tax_rate_1,sql_float) as TaxRate, convert(tax_amt_1,sql_float) as TaxAmt from v_order_hist_line where date_order between '{0}' and '{1}'",V.Global.dateFrom.PervasiveDate,V.Global.dateUntil.PervasiveDate,V.Local.sSQL)
+'F.Data.DataTable.CreateFromSQL("dtInvc","conx",V.Local.sSQL,True)
+'F.Data.DataTable.FillFromDictionary("dtInvc","dicCustName","Customer","CustomerName")
+''F.Data.DataTable.AddExpressionColumn("dtInvc","TotalCost","Float","Quantity*Cost")
+'F.Data.DataTable.AddExpressionColumn("dtInvc","SOSuffix","String","Invoice+SO+Suffix")
+
+'F.Intrinsic.String.Build("select invoice+order_no+order_suffix, pck_no from v_order_hist_head where date_order between '{0}' and '{1}'",V.Global.dateFrom.PervasiveDate,V.Global.dateUntil.PervasiveDate,V.Local.sSQL)
+'F.Data.Dictionary.CreateFromSQL("dicPck","conx",V.Local.sSQL)
+'F.Data.Dictionary.SetDefaultReturn("dicPck","")
+'F.Data.DataTable.FillFromDictionary("dtInvc","dicPck","SOSuffix","DO")
+'F.Data.Dictionary.Close("dicPck")
+
+'F.Data.DataTable.Merge("dtInvc","dtShip",True,1)
+'F.Data.DataTable.Close("dtInvc")
+
+F.Data.DataTable.FillFromDictionary("dtShip","dicCRegion","Customer","RegionID")
+F.Data.DataTable.FillFromDictionary("dtShip","dicRegion","RegionID","Region")
+F.Data.DataTable.AddExpressionColumn("dtShip","Margin","Float","IIF(TotalCost=0,0,(Extension-TotalCost)/TotalCost)")
+F.Data.DataTable.RemoveColumn("dtShip","SOSuffix")
+
+'Retrieve quotes and quote lines based on customer's list
+F.Intrinsic.Control.If(V.Global.iRegion,=,0)
+	V.Local.sFilter.Set("")
+F.Intrinsic.Control.Else
+	F.Intrinsic.Control.For(V.Local.i1,0,V.DataTable.dtCust.RowCount--,1)
+		F.Intrinsic.Control.If(V.Local.sFilter.Trim,=,"")
+			F.Intrinsic.String.Build("Customer = '{0}'",V.DataTable.dtCust(V.Local.i1).customer!FieldValTrim,V.Local.sFilter)
+		F.Intrinsic.Control.Else
+			F.Intrinsic.String.Build("{1} OR Customer = '{0}'",V.DataTable.dtCust(V.Local.i1).customer!FieldValTrim,V.Local.sFilter,V.Local.sFilter)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Next(V.Local.i1)
+F.Intrinsic.Control.EndIf
+
+F.Data.DataView.Create("dtShip","dvShip",22,V.Local.sFilter,"SO ASC, Suffix ASC, Line ASC")
+Gui.F_QteSO.GsGCShip.AddGridviewFromDataview("gvShip","dtShip","dvShip")
+Gui.F_QteSO.GsGCShip.MainView("gvShip")
+
+Gui.F_QteSO.GsGCShip.SetGridviewProperty("gvShip","ShowGroupPanel",True)
+Gui.F_QteSO.GsGCShip.SetGridviewProperty("gvShip","AllowSort",True)
+Gui.F_QteSO.GsGCShip.SetGridviewProperty("gvShip","AllowFilter",True)
+
+Gui.F_QteSO.GsGCShip.SetGridviewProperty("gvShip","ShowGroupPanel",True)
+Gui.F_QteSO.GsGCShip.SetGridviewProperty("gvShip","AllowSort",True)
+Gui.F_QteSO.GsGCShip.SetGridviewProperty("gvShip","AllowFilter",True)
+
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","TaxCode","Visible",False)
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","TaxRate","Visible",False)
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","Customer","Visible",False)
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","RegionID","Visible",False)
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","SO","Caption","Order No.")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","PO","Caption","PO No.")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","DO","Caption","DO No.")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","CustomerName","Caption","Customer Name")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","SODate","Caption","Order Date")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","ShipDate","Caption","Ship Date")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","DueDate","Caption","Due Date")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","TaxAmt","Caption","GST")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","Cost","Caption","Unit Cost")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","TotalCost","Caption","Total Cost")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","CPart","Caption","Customer Part")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","ProductType","Caption","ProductType")
+
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","SO","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","Suffix","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","CustomerName","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","Region","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","SODate","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","ShipDate","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","DueDate","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","DO","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","Invoice","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","PO","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","Line","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","Part","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","Description","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","Currency","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","Quantity","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","UM","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","Price","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","Extension","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","TaxAmt","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","Cost","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","TotalCost","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","CPart","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","PL","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","ProductType","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","Margin","HeaderHAlignment","Center")
+
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","SO","HeaderFontBold",True)
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","Suffix","HeaderFontBold",True)
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","CustomerName","HeaderFontBold",True)
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","Region","HeaderFontBold",True)
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","SODate","HeaderFontBold",True)
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","ShipDate","HeaderFontBold",True)
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","DueDate","HeaderFontBold",True)
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","DO","HeaderFontBold",True)
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","Invoice","HeaderFontBold",True)
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","PO","HeaderFontBold",True)
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","Line","HeaderFontBold",True)
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","Part","HeaderFontBold",True)
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","Description","HeaderFontBold",True)
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","Currency","HeaderFontBold",True)
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","Quantity","HeaderFontBold",True)
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","UM","HeaderFontBold",True)
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","Price","HeaderFontBold",True)
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","Extension","HeaderFontBold",True)
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","TaxAmt","HeaderFontBold",True)
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","Cost","HeaderFontBold",True)
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","TotalCost","HeaderFontBold",True)
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","CPart","HeaderFontBold",True)
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","PL","HeaderFontBold",True)
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","ProductType","HeaderFontBold",True)
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","Margin","HeaderFontBold",True)
+
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","SO","MinWidth","80")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","Suffix","MinWidth","70")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","CustomerName","MinWidth","180")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","Region","MinWidth","100")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","SODate","MinWidth","100")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","ShipDate","MinWidth","100")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","DueDate","MinWidth","100")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","DO","MinWidth","80")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","Invoice","MinWidth","80")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","PO","MinWidth","110")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","Line","MinWidth","40")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","Part","MinWidth","120")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","Description","MinWidth","200")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","Currency","MinWidth","70")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","Quantity","MinWidth","90")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","UM","MinWidth","40")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","Price","MinWidth","100")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","Extension","MinWidth","100")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","TaxAmt","MinWidth","100")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","Cost","MinWidth","100")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","TotalCost","MinWidth","100")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","CPart","MinWidth","120")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","PL","MinWidth","40")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","ProductType","MinWidth","100")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","Margin","MinWidth","80")
+
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","SO","CellHAlignment","Center")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","Suffix","CellHAlignment","Center")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","SODate","CellHAlignment","Center")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","ShipDate","CellHAlignment","Center")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","DueDate","CellHAlignment","Center")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","DO","CellHAlignment","Center")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","Invoice","CellHAlignment","Center")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","Line","CellHAlignment","Center")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","Currency","CellHAlignment","Center")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","UM","CellHAlignment","Center")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","PL","CellHAlignment","Center")
+
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","SODate","DisplayCustomDatetime","d")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","ShipDate","DisplayCustomDatetime","d")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","DueDate","DisplayCustomDatetime","d")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","Quantity","DisplayCustomNumeric","##,###,##0")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","Price","DisplayCustomNumeric","##,###,##0.00")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","Extension","DisplayCustomNumeric","##,###,##0.00")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","TaxAmt","DisplayCustomNumeric","##,###,##0.00")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","Cost","DisplayCustomNumeric","##,###,##0.00")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","TotalCost","DisplayCustomNumeric","##,###,##0.00")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","Margin","DisplayCustomNumeric","##,###,##0.00%")
+
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","SO","Fixed","Left")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","DO","Fixed","Left")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","Invoice","Fixed","Left")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","Extension","Fixed","Right")
+Gui.F_QteSO.GsGCShip.SetColumnProperty("gvShip","TaxAmt","Fixed","Right")
+
+Gui.F_QteSO.GsGCShip.AddSummaryItem("gvShip","Extension","SHIPEXTSUM","SUM","","","##,###,##0.00")
+Gui.F_QteSO.GsGCShip.AddSummaryItem("gvShip","TotalCost","SHIPCOSTSUM","SUM","","","##,###,##0.00")
+Gui.F_QteSO.GsGCShip.AddSummaryItem("gvShip","TaxAmt","SHIPTAXSUM","SUM","","","##,###,##0.00")
+
+Gui.F_QteSO.GsGCShip.Visible(True)
+Program.Sub.LoadShip.End
+
+Program.Sub.LoadInvoice.Start
+V.Local.i1.Declare
+V.Local.sFilter.Declare
+V.Local.sSQL.Declare
+
+F.Intrinsic.Control.If(V.DataTable.dtInvoice.Exists)
+	F.Data.DataView.Close("dtInvoice","dvInvoice")
+	F.Data.DataTable.Close("dtInvoice")
+F.Intrinsic.Control.EndIf
+
+Gui.F_QteSO.GsGCInvoice.Visible(False)
+''F.Intrinsic.String.Build("select order_no as SO, order_suffix as Suffix, rtrim(customer) as Customer, '' as CustomerName, 0 as RegionID, ' ' as Region, date_order as SODate, date_ship as ShipDate, date_item_promise as DueDate, ' ' as DO, invoice as Invoice, '' as PO, order_rec as Line, part as Part, customer_part as CPart, product_line as PL, order_desc as Description, ln_user_1 as ProductType, exchange_currency as Currency, qty_shipped as Quantity, um_order as UM, discount_price as Price, extension as Extension, tax_1 as TaxCode, cost as Cost, qty_shipped*cost as TotalCost from v_shipment_lines where date_order between '{0}' and '{1}'",V.Global.dateFrom.PervasiveDate,V.Global.dateUntil.PervasiveDate,V.Local.sSQL)
+'F.Intrinsic.String.Build("select order_no as SO, order_suffix as Suffix, rtrim(customer) as Customer, '' as CustomerName, 0 as RegionID, ' ' as Region, date_order as SODate, date_ship as ShipDate, date_item_promise as DueDate, ' ' as DO, invoice as Invoice, '' as PO, order_rec as Line, part as Part, customer_part as CPart, product_line as PL, order_desc as Description, ln_user_1 as ProductType, exchange_currency as Currency, qty_shipped as Quantity, um_order as UM, discount_price as Price, extension as Extension, tax_1 as TaxCode, cost as Cost, qty_shipped*cost as TotalCost from v_shipment_lines where date_ship between '{0}' and '{1}'",V.Global.dateFrom.PervasiveDate,V.Global.dateUntil.PervasiveDate,V.Local.sSQL)
+'F.Data.DataTable.CreateFromSQL("dtInvoice","conx",V.Local.sSQL,True)
+''F.Data.DataTable.AddExpressionColumn("dtInvoice","TotalCost","Float","Quantity*Cost")
+'F.Data.DataTable.FillFromDictionary("dtInvoice","dicCustName","Customer","CustomerName")
+'F.Data.DataTable.AddColumn("dtInvoice","TaxRate","Float",0)
+'F.Data.DataTable.FillFromDictionary("dtInvoice","dicTax","TaxCode","TaxRate")
+'F.Data.DataTable.AddExpressionColumn("dtInvoice","TaxAmt","Float","Extension*TaxRate")
+''F.Intrinsic.String.Build("select order_no, customer_po from v_shipment_header where date_order between '{0}' and '{1}'",V.Global.dateFrom.PervasiveDate,V.Global.dateUntil.PervasiveDate,V.Local.sSQL)
+'F.Intrinsic.String.Build("select order_no, customer_po from v_shipment_header where date_shipped between '{0}' and '{1}'",V.Global.dateFrom.PervasiveDate,V.Global.dateUntil.PervasiveDate,V.Local.sSQL)
+'F.Data.Dictionary.CreateFromSQL("dicShip","conx",V.Local.sSQL)
+'F.Data.Dictionary.SetDefaultReturn("dicShip","")
+'F.Data.DataTable.FillFromDictionary("dtInvoice","dicShip","SO","PO")
+'F.Data.Dictionary.Close("dicShip")
+'F.Data.DataTable.AddExpressionColumn("dtInvoice","SOSuffix","String","SO+Suffix")
+''F.Intrinsic.String.Build("select order_no+order_suffix, pck_no from v_shipment_header where date_order between '{0}' and '{1}'",V.Global.dateFrom.PervasiveDate,V.Global.dateUntil.PervasiveDate,V.Local.sSQL)
+'F.Intrinsic.String.Build("select order_no+order_suffix, pck_no from v_shipment_header where date_shipped between '{0}' and '{1}'",V.Global.dateFrom.PervasiveDate,V.Global.dateUntil.PervasiveDate,V.Local.sSQL)
+'F.Data.Dictionary.CreateFromSQL("dicShip","conx",V.Local.sSQL)
+'F.Data.Dictionary.SetDefaultReturn("dicShip","")
+'F.Data.DataTable.FillFromDictionary("dtInvoice","dicShip","SOSuffix","DO")
+'F.Data.Dictionary.Close("dicShip")
+
+F.Intrinsic.String.Build("select order_no as SO, order_suffix as Suffix, rtrim(customer) as Customer, '' as CustomerName, 0 as RegionID, ' ' as Region, date_order as SODate, date_shipped as ShipDate, date_order_due as DueDate, ' ' as DO, invoice as Invoice, customer_po as PO, order_line as Line, part as Part, customer_part as CPart, product_line as PL, description as Description, user_1 as ProductType, order_currency as Currency, qty_shipped as Quantity, um as UM, price_discount as Price, extension as Extension, tax_1 as TaxCode, cost as Cost, qty_shipped*cost as TotalCost, convert(tax_rate_1,sql_float) as TaxRate, convert(tax_amt_1,sql_float) as TaxAmt from v_order_hist_line where date_invoice between '{0}' and '{1}'",V.Global.dateFrom.PervasiveDate,V.Global.dateUntil.PervasiveDate,V.Local.sSQL)
+'F.Data.DataTable.CreateFromSQL("dtInvc","conx",V.Local.sSQL,True)
+'F.Data.DataTable.FillFromDictionary("dtInvc","dicCustName","Customer","CustomerName")
+'F.Data.DataTable.AddExpressionColumn("dtInvc","TotalCost","Float","Quantity*Cost")
+'F.Data.DataTable.AddExpressionColumn("dtInvc","SOSuffix","String","Invoice+SO+Suffix")
+F.Data.DataTable.CreateFromSQL("dtInvoice","conx",V.Local.sSQL,True)
+F.Data.DataTable.FillFromDictionary("dtInvoice","dicCustName","Customer","CustomerName")
+'F.Data.DataTable.AddExpressionColumn("dtInvoice","TotalCost","Float","Quantity*Cost")
+F.Data.DataTable.AddExpressionColumn("dtInvoice","SOSuffix","String","Invoice+SO+Suffix")
+
+F.Intrinsic.String.Build("select invoice+order_no+order_suffix, pck_no from v_order_hist_head where date_invoice between '{0}' and '{1}'",V.Global.dateFrom.PervasiveDate,V.Global.dateUntil.PervasiveDate,V.Local.sSQL)
+F.Data.Dictionary.CreateFromSQL("dicPck","conx",V.Local.sSQL)
+F.Data.Dictionary.SetDefaultReturn("dicPck","")
+F.Data.DataTable.FillFromDictionary("dtInvoice","dicPck","SOSuffix","DO")
+F.Data.Dictionary.Close("dicPck")
+
+'F.Data.DataTable.Merge("dtInvc","dtInvoice",True,1)
+'F.Data.DataTable.Close("dtInvc")
+
+F.Data.DataTable.FillFromDictionary("dtInvoice","dicCRegion","Customer","RegionID")
+F.Data.DataTable.FillFromDictionary("dtInvoice","dicRegion","RegionID","Region")
+F.Data.DataTable.AddExpressionColumn("dtInvoice","Margin","Float","IIF(TotalCost=0,0,(Extension-TotalCost)/TotalCost)")
+F.Data.DataTable.RemoveColumn("dtInvoice","SOSuffix")
+
+'Retrieve quotes and quote lines based on customer's list
+F.Intrinsic.Control.If(V.Global.iRegion,=,0)
+	V.Local.sFilter.Set("")
+F.Intrinsic.Control.Else
+	F.Intrinsic.Control.For(V.Local.i1,0,V.DataTable.dtCust.RowCount--,1)
+		F.Intrinsic.Control.If(V.Local.sFilter.Trim,=,"")
+			F.Intrinsic.String.Build("Customer = '{0}'",V.DataTable.dtCust(V.Local.i1).customer!FieldValTrim,V.Local.sFilter)
+		F.Intrinsic.Control.Else
+			F.Intrinsic.String.Build("{1} OR Customer = '{0}'",V.DataTable.dtCust(V.Local.i1).customer!FieldValTrim,V.Local.sFilter,V.Local.sFilter)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Next(V.Local.i1)
+F.Intrinsic.Control.EndIf
+
+F.Data.DataView.Create("dtInvoice","dvInvoice",22,V.Local.sFilter,"SO ASC, Suffix ASC, Line ASC")
+Gui.F_QteSO.GsGCInvoice.AddGridviewFromDataview("gvInvoice","dtInvoice","dvInvoice")
+Gui.F_QteSO.GsGCInvoice.MainView("gvInvoice")
+
+Gui.F_QteSO.GsGCInvoice.SetGridviewProperty("gvInvoice","ShowGroupPanel",True)
+Gui.F_QteSO.GsGCInvoice.SetGridviewProperty("gvInvoice","AllowSort",True)
+Gui.F_QteSO.GsGCInvoice.SetGridviewProperty("gvInvoice","AllowFilter",True)
+
+Gui.F_QteSO.GsGCInvoice.SetGridviewProperty("gvInvoice","ShowGroupPanel",True)
+Gui.F_QteSO.GsGCInvoice.SetGridviewProperty("gvInvoice","AllowSort",True)
+Gui.F_QteSO.GsGCInvoice.SetGridviewProperty("gvInvoice","AllowFilter",True)
+
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","TaxCode","Visible",False)
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","TaxRate","Visible",False)
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","Customer","Visible",False)
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","RegionID","Visible",False)
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","SO","Caption","Order No.")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","PO","Caption","PO No.")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","DO","Caption","DO No.")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","CustomerName","Caption","Customer Name")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","SODate","Caption","Order Date")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","ShipDate","Caption","Ship Date")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","DueDate","Caption","Due Date")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","TaxAmt","Caption","GST")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","Cost","Caption","Unit Cost")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","TotalCost","Caption","Total Cost")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","CPart","Caption","Customer Part")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","ProductType","Caption","ProductType")
+
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","SO","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","Suffix","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","CustomerName","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","Region","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","SODate","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","ShipDate","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","DueDate","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","DO","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","Invoice","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","PO","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","Line","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","Part","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","Description","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","Currency","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","Quantity","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","UM","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","Price","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","Extension","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","TaxAmt","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","Cost","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","TotalCost","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","CPart","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","PL","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","ProductType","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","Margin","HeaderHAlignment","Center")
+
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","SO","HeaderFontBold",True)
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","Suffix","HeaderFontBold",True)
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","CustomerName","HeaderFontBold",True)
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","Region","HeaderFontBold",True)
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","SODate","HeaderFontBold",True)
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","ShipDate","HeaderFontBold",True)
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","DueDate","HeaderFontBold",True)
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","DO","HeaderFontBold",True)
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","Invoice","HeaderFontBold",True)
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","PO","HeaderFontBold",True)
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","Line","HeaderFontBold",True)
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","Part","HeaderFontBold",True)
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","Description","HeaderFontBold",True)
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","Currency","HeaderFontBold",True)
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","Quantity","HeaderFontBold",True)
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","UM","HeaderFontBold",True)
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","Price","HeaderFontBold",True)
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","Extension","HeaderFontBold",True)
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","TaxAmt","HeaderFontBold",True)
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","Cost","HeaderFontBold",True)
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","TotalCost","HeaderFontBold",True)
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","CPart","HeaderFontBold",True)
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","PL","HeaderFontBold",True)
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","ProductType","HeaderFontBold",True)
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","Margin","HeaderFontBold",True)
+
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","SO","MinWidth","80")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","Suffix","MinWidth","70")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","CustomerName","MinWidth","180")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","Region","MinWidth","100")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","SODate","MinWidth","100")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","ShipDate","MinWidth","100")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","DueDate","MinWidth","100")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","DO","MinWidth","80")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","Invoice","MinWidth","80")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","PO","MinWidth","110")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","Line","MinWidth","40")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","Part","MinWidth","120")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","Description","MinWidth","200")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","Currency","MinWidth","70")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","Quantity","MinWidth","90")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","UM","MinWidth","40")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","Price","MinWidth","100")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","Extension","MinWidth","100")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","TaxAmt","MinWidth","100")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","Cost","MinWidth","100")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","TotalCost","MinWidth","100")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","CPart","MinWidth","120")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","PL","MinWidth","40")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","ProductType","MinWidth","100")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","Margin","MinWidth","80")
+
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","SO","CellHAlignment","Center")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","Suffix","CellHAlignment","Center")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","SODate","CellHAlignment","Center")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","ShipDate","CellHAlignment","Center")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","DueDate","CellHAlignment","Center")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","DO","CellHAlignment","Center")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","Invoice","CellHAlignment","Center")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","Line","CellHAlignment","Center")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","Currency","CellHAlignment","Center")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","UM","CellHAlignment","Center")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","PL","CellHAlignment","Center")
+
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","SODate","DisplayCustomDatetime","d")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","ShipDate","DisplayCustomDatetime","d")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","DueDate","DisplayCustomDatetime","d")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","Quantity","DisplayCustomNumeric","##,###,##0")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","Price","DisplayCustomNumeric","##,###,##0.00")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","Extension","DisplayCustomNumeric","##,###,##0.00")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","TaxAmt","DisplayCustomNumeric","##,###,##0.00")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","Cost","DisplayCustomNumeric","##,###,##0.00")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","TotalCost","DisplayCustomNumeric","##,###,##0.00")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","Margin","DisplayCustomNumeric","##,###,##0.00%")
+
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","SO","Fixed","Left")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","DO","Fixed","Left")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","Invoice","Fixed","Left")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","Extension","Fixed","Right")
+Gui.F_QteSO.GsGCInvoice.SetColumnProperty("gvInvoice","TaxAmt","Fixed","Right")
+
+Gui.F_QteSO.GsGCInvoice.AddSummaryItem("gvInvoice","Extension","SHIPEXTSUM","SUM","","","##,###,##0.00")
+Gui.F_QteSO.GsGCInvoice.AddSummaryItem("gvInvoice","TotalCost","SHIPCOSTSUM","SUM","","","##,###,##0.00")
+Gui.F_QteSO.GsGCInvoice.AddSummaryItem("gvInvoice","TaxAmt","SHIPTAXSUM","SUM","","","##,###,##0.00")
+
+Gui.F_QteSO.GsGCInvoice.Visible(True)
+Program.Sub.LoadInvoice.End
+
+Program.Sub.LoadWonLoss.Start
+V.Local.fPercent.Declare
+V.Local.fTotalAmt.Declare
+V.Local.fWonAmt.Declare
+V.Local.i1.Declare
+V.Local.sAmt.Declare
+V.Local.sFilter.Declare
+V.Local.sSQL.Declare
+
+F.Intrinsic.Control.If(V.DataTable.dtWLC.Exists)
+	F.Data.DataView.Close("dtWLC","dvWLC")
+	F.Data.DataTable.Close("dtWLC")
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.If(V.Global.iRegion,=,0)
+	V.Local.sFilter.Set("")
+F.Intrinsic.Control.Else
+	F.Intrinsic.Control.For(V.Local.i1,0,V.DataTable.dtCust.RowCount--,1)
+		F.Intrinsic.Control.If(V.Local.sFilter.Trim,=,"")
+			F.Intrinsic.String.Build("Customer = '{0}'",V.DataTable.dtCust(V.Local.i1).customer!FieldValTrim,V.Local.sFilter)
+		F.Intrinsic.Control.Else
+			F.Intrinsic.String.Build("{1} OR Customer = '{0}'",V.DataTable.dtCust(V.Local.i1).customer!FieldValTrim,V.Local.sFilter,V.Local.sFilter)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Next(V.Local.i1)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.String.Build("select quote_no as Quote, record_no as Line, rtrim(customer) as Customer, '' as CustomerName, 0 as RegionID, ' ' as Region, part as Part, product_line as PL, description as Description, qty_quoted as Quantity, um_quote as UM, discount_price as Price, extension as Extension, quote_curr_cd as Currency, price_disc_ord as PriceQte, extension_quote as ExtensionQte, quote_won as WLC from v_quote_lines where date_quote between '{0}' and '{1}'",V.Global.dateFrom.PervasiveDate,V.Global.dateUntil.PervasiveDate,V.Local.sSQL)
+F.Data.DataTable.CreateFromSQL("dtWLC","conx",V.Local.sSQL,True)
+F.Data.DataTable.FillFromDictionary("dtWLC","dicCustName","Customer","CustomerName")
+F.Data.DataTable.FillFromDictionary("dtWLC","dicCRegion","Customer","RegionID")
+F.Data.DataTable.FillFromDictionary("dtWLC","dicRegion","RegionID","Region")
+
+F.Data.DataView.Create("dtWLC","dvWLC",22,V.Local.sFilter,"Quote ASC, Line ASC")
+
+Gui.F_QteSO.GsGCWL.AddGridviewFromDataview("gvWL","dtWLC","dvWLC")
+Gui.F_QteSO.GsGCWL.MainView("gvWL")
+
+Gui.F_QteSO.GsGCWL.SetGridviewProperty("gvWL","ShowGroupPanel",True)
+Gui.F_QteSO.GsGCWL.SetGridviewProperty("gvWL","AllowSort",True)
+Gui.F_QteSO.GsGCWL.SetGridviewProperty("gvWL","AllowFilter",True)
+
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","RegionID","Visible",False)
+
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","CustomerName","Caption","Customer Name")
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","WLC","Caption","W/L/C")
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","PriceQte","Caption","Forex Price")
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","ExtensionQte","Caption","Forex Extension")
+
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","Quote","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","Line","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","Customer","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","CustomerName","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","Region","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","Part","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","Description","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","Quantity","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","UM","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","Price","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","Extension","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","PL","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","Currency","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","PriceQte","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","ExtensionQte","HeaderHAlignment","Center")
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","WLC","HeaderHAlignment","Center")
+
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","Quote","HeaderFontBold",True)
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","Line","HeaderFontBold",True)
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","Customer","HeaderFontBold",True)
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","CustomerName","HeaderFontBold",True)
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","Region","HeaderFontBold",True)
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","Part","HeaderFontBold",True)
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","Description","HeaderFontBold",True)
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","Quantity","HeaderFontBold",True)
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","UM","HeaderFontBold",True)
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","Price","HeaderFontBold",True)
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","Extension","HeaderFontBold",True)
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","PL","HeaderFontBold",True)
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","Currency","HeaderFontBold",True)
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","PriceQte","HeaderFontBold",True)
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","ExtensionQte","HeaderFontBold",True)
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","WLC","HeaderFontBold",True)
+
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","Quote","MinWidth","80")
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","Line","MinWidth","40")
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","Customer","MinWidth","80")
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","CustomerName","MinWidth","180")
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","Region","MinWidth","100")
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","Part","MinWidth","120")
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","Description","MinWidth","200")
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","Quantity","MinWidth","70")
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","UM","MinWidth","40")
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","Price","MinWidth","100")
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","Extension","MinWidth","100")
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","PL","MinWidth","40")
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","Currency","MinWidth","50")
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","PriceQte","MinWidth","100")
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","ExtensionQte","MinWidth","100")
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","WLC","MinWidth","60")
+
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","Quote","CellHAlignment","Center")
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","Line","CellHAlignment","Center")
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","Customer","CellHAlignment","Center")
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","UM","CellHAlignment","Center")
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","PL","CellHAlignment","Center")
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","Currency","CellHAlignment","Center")
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","WLC","CellHAlignment","Center")
+
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","Quantity","DisplayCustomNumeric","##,###,##0")
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","Price","DisplayCustomNumeric","##,###,##0.00")
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","Extension","DisplayCustomNumeric","##,###,##0.00")
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","PriceQte","DisplayCustomNumeric","##,###,##0.00")
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","ExtensionQte","DisplayCustomNumeric","##,###,##0.00")
+
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","Quote","Fixed","Left")
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","Line","Fixed","Left")
+Gui.F_QteSO.GsGCWL.SetColumnProperty("gvWL","Part","Fixed","Left")
+
+Gui.F_QteSO.GsGCWL.AddSummaryItem("gvWL","Extension","QEXTSUM","SUM","","","##,###,##0.00")
+
+F.Data.DataTable.Compute("dtWLC","SUM(Extension)",V.Local.sFilter,V.Local.fTotalAmt)
+F.Intrinsic.Control.If(V.Local.sFilter.Trim,=,"")
+	V.Local.sFilter.set("WLC = 'W'")
+F.Intrinsic.Control.Else
+	F.Intrinsic.String.Build("({0}) AND WLC = 'W'",V.Local.sFilter,V.Local.sFilter)
+F.Intrinsic.Control.EndIf
+F.Data.DataTable.Compute("dtWLC","SUM(Extension)",V.Local.sFilter,V.Local.fWonAmt)
+F.Intrinsic.Control.If(V.Local.fTotalAmt,<>,0)
+	F.Intrinsic.Math.Div(V.Local.fWonAmt,V.Local.fTotalAmt,V.Local.fPercent)
+F.Intrinsic.Control.Else
+	V.Local.fPercent.Set(0)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Math.Round(V.Local.fPercent,4,V.Local.fPercent)
+F.Intrinsic.String.Format(V.Local.fWonAmt,"##,###,##0.00",V.Local.sAmt)
+Gui.F_QteSO.txtWonAmt.Text(V.Local.sAmt)
+F.Intrinsic.String.Format(V.Local.fPercent,"0.00%",V.Local.sAmt)
+Gui.F_QteSO.txtWonPct.Text(V.Local.sAmt)
+Program.Sub.LoadWonLoss.End
+
+Program.Sub.InitializeDateRange.Start
+V.Local.dateFrom.Declare
+
+F.Intrinsic.Date.DateAdd("M",-1,V.Ambient.Date,V.Local.dateFrom)
+F.Intrinsic.Date.BeginningOfMonth(V.Local.dateFrom,V.Local.dateFrom)
+Gui.F_QteSO.dtpFrom.Value(V.Local.dateFrom)
+Program.Sub.InitializeDateRange.End
+
+Program.Sub.cmdRefresh_Click.Start
+V.Local.dateFrom.Declare
+V.Local.iDiff.Declare
+
+F.Intrinsic.Date.DateDiff("D",V.Screen.F_QteSO!dtpFrom.Value,V.Screen.F_QteSO!dtpUntil.Value,V.Local.iDiff)
+
+F.Intrinsic.Control.If(V.Local.iDiff,<,0)
+	F.Intrinsic.UI.Msgbox("Invalid Date Range")
+
+	F.Intrinsic.Date.BeginningOfMonth(V.Screen.F_QteSO!dtpUntil.Value,V.Local.dateFrom)
+	Gui.F_QteSO.dtpFrom.Value(V.Local.dateFrom)
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+
+V.Global.dateFrom.Set(V.Screen.F_QteSO!dtpFrom.Value)
+V.Global.dateUntil.Set(V.Screen.F_QteSO!dtpUntil.Value)
+
+F.Intrinsic.Control.CallSub(LoadQuotes)
+F.Intrinsic.Control.CallSub(LoadWonLoss)
+F.Intrinsic.Control.CallSub(LoadSO)
+F.Intrinsic.Control.CallSub(LoadShip)
+F.Intrinsic.Control.CallSub(LoadInvoice)
+Program.Sub.cmdRefresh_Click.End
+
+Program.Sub.Comments.Start
+${$0$}$$}$$}$12:00:00 AM$}$False
+${$3$}$0$}$$}$0$}$-1$}$$}$12:00:00 AM$}$Sales Orders and Work Order Revisions
+Hooks:
+12010 OES0201I-Populate- Hook
+12420 OES0201I-Script 2-Hook
+16630 JBS0010GI-Populate-Hook
+16680 JBS001-Script2-Hook
+13580 WOS061-Populate-Hook
+13630 WOS061-Script2-Hook
+
+Table:
+GAB_ORDER_REV
+Program.Sub.Comments.End
